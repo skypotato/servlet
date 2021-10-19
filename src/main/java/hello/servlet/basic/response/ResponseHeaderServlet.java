@@ -22,7 +22,19 @@ public class ResponseHeaderServlet extends HttpServlet {
         response.setHeader("Pragma", "no-cache");
         response.setHeader("my-header", "hello");
 
+        //[Header 편의 메서드]
+        content(response);
+
         PrintWriter writer = response.getWriter();
         writer.write("ok");
+    }
+
+    private void content(HttpServletResponse response){
+        //Content-Type: text/plain;charset=utf-8
+        //Content-Length: 2
+        //response.setHeader("Content-Type", "text/plain;charset=utf-8";
+        response.setContentType("text/plain");
+        response.setCharacterEncoding("utf-8");
+        // response.setContentLength(2); //(생략시 자동 생성)
     }
 }

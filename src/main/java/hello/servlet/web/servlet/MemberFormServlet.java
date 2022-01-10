@@ -30,7 +30,7 @@ public class MemberFormServlet extends HttpServlet {
                 "<body>\n" +
                 "<form action=\"/servlet/members/save\" method=\"post\">\n" +
                 "\tusername: <input type=\"text\" name=\"username\" />\n" +
-                "\tage: <input tpye=\"text\" name=\"age\" />\n" +
+                "\tage: <input type=\"text\" name=\"age\" />\n" +
                 "\t<button type=\"submit\">전송</button>\n" +
                 "</form>\n" +
                 "</body>\n" +

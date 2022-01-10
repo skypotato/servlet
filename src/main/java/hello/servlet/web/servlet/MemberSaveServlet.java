@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Writer;
 
-@WebServlet(name="memberSaveServlet", urlPatterns = "/servlet/members/save")
+@WebServlet(name = "memberSaveServlet", urlPatterns = "/servlet/members/save")
 public class MemberSaveServlet extends HttpServlet {
 
     private MemberRepository memberRepository = MemberRepository.getInstance();
@@ -21,7 +21,9 @@ public class MemberSaveServlet extends HttpServlet {
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         System.out.println("MemberSaveServlet.service");
         String username = request.getParameter("username");
-        Long age = Long.parseLong(request.getParameter("age"));
+        int age = Integer.parseInt(request.getParameter("age"));
+
+        System.out.println("age = " + age);
 
         Member member = new Member(username, age);
         memberRepository.save(member);
@@ -37,8 +39,9 @@ public class MemberSaveServlet extends HttpServlet {
                 "<body>\n" +
                 "성공\n" +
                 "<ul>\n" +
-                "\t<li>id="+member.getId()+"</li>\n" +
-                "\t<li>username="+member.getUsername()+"</li>\n" +
+                "\t<li>id=" + member.getId() + "</li>\n" +
+                "\t<li>username=" + member.getUsername() + "</li>\n" +
+                "\t<li>age=" + member.getAge() + "</li>\n" +
                 "</ul>\n" +
                 "<a href=\"/index.html\">메인</a>\n" +
                 "</body>\n" +

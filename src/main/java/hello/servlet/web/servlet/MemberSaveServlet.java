@@ -1,5 +1,6 @@
 package hello.servlet.web.servlet;
 
+import hello.servlet.domain.member.Member;
 import hello.servlet.domain.member.MemberRepository;
 
 import javax.servlet.ServletException;
@@ -9,32 +10,39 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Writer;
 
-@WebServlet(name = "memberFormServlet", urlPatterns = "/servlet/members/new-form")
-public class MemberFormServlet extends HttpServlet {
+@WebServlet(name="memberSaveServlet", urlPatterns = "/servlet/members/save")
+public class MemberSaveServlet extends HttpServlet {
 
     private MemberRepository memberRepository = MemberRepository.getInstance();
 
     @Override
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        System.out.println("MemberSaveServlet.service");
+        String username = request.getParameter("username");
+        Long age = Long.parseLong(request.getParameter("age"));
+
+        Member member = new Member(username, age);
+        memberRepository.save(member);
+
         response.setContentType("text/html");
         response.setCharacterEncoding("utf-8");
 
         PrintWriter w = response.getWriter();
-        w.write("<!DOCTYPE html>\n" +
-                "<html>\n" +
+        w.write("<html>\n" +
                 "<head>\n" +
                 "\t<meta charset=\"UTF-8\">\n" +
-                "\t<title>Title</title>\n" +
                 "</head>\n" +
                 "<body>\n" +
-                "<form action=\"/servlet/members/save\" method=\"post\">\n" +
-                "\tusername: <input type=\"text\" name=\"username\" />\n" +
-                "\tage: <input tpye=\"text\" name=\"age\" />\n" +
-                "\t<button type=\"submit\">전송</button>\n" +
-                "</form>\n" +
+                "성공\n" +
+                "<ul>\n" +
+                "\t<li>id="+member.getId()+"</li>\n" +
+                "\t<li>username="+member.getUsername()+"</li>\n" +
+                "</ul>\n" +
+                "<a href=\"/index.html\">메인</a>\n" +
                 "</body>\n" +
-                "</html>\n");
+                "</html>");
 
     }
 }

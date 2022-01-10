@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-@WebServlet(name="memberFormServlet", urlPatterns = "/servlet/members/new-form")
+@WebServlet(name = "memberFormServlet", urlPatterns = "/servlet/members/new-form")
 public class MemberFormServlet extends HttpServlet {
 
     private MemberRepository memberRepository = MemberRepository.getInstance();
@@ -21,6 +21,20 @@ public class MemberFormServlet extends HttpServlet {
         response.setCharacterEncoding("utf-8");
 
         PrintWriter writer = response.getWriter();
+        writer.write("<!DOCTYPE html>\n" +
+                "<html>\n" +
+                "<head>\n" +
+                "\t<meta charset=\"UTF-8\">\n" +
+                "\t<title>Title</title>\n" +
+                "</head>\n" +
+                "<body>\n" +
+                "<form action=\"/servlet/members/save\" method=\"post\">\n" +
+                "\tusername: <input type=\"text\" name=\"username\" />\n" +
+                "\tage: <input tpye=\"text\" name=\"age\" />\n" +
+                "\t<button type=\"submit\">전송</button>\n" +
+                "</form>\n" +
+                "</body>\n" +
+                "</html>\n");
 
     }
 }

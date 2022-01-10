@@ -8,7 +8,6 @@ public class Member {
 
     public Member() {
     }
-
     public Member(String username ,Long id ) {
         this.username = username;
         this.id = id;

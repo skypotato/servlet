@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name="mvcMamberFormServlet", urlPatterns = "/servelt-mvc/members/new-form")
+@WebServlet(name="mvcMamberFormServlet", urlPatterns = "/servlet-mvc/members/new-form")
 public class MemberFormServlet extends HttpServlet {
 
     @Override

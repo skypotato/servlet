@@ -5,8 +5,14 @@
 </head>
 <body>
 <form action="save" method="post">
-    username:   <input type="text" name="username"/>
-    age:        <input type="text" name="age"/>
+    <label>
+        username:
+        <input type="text" name="username"/>
+    </label>
+    <label>
+        age:
+        <input type="text" name="age"/>
+    </label>
     <button type="submit">전송</button>
 </form>
 </body>

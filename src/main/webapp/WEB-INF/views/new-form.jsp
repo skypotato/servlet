@@ -7,11 +7,11 @@
 <body>
 <form action="save" method="post">
     <label>
-        username:
+        username :
         <input type="text" name="username"/>
     </label>
     <label>
-        age:
+        age :
         <input type="text" name="age"/>
     </label>
     <button type="submit">전송</button>

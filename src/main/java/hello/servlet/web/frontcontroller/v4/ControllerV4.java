@@ -9,5 +9,5 @@ public interface ControllerV4 {
      * @param model
      * @return viewName
      */
-    String process(Map<String, String> param, Map<String, String> model);
+    String process(Map<String, String> param, Map<String, Object> model);
 }

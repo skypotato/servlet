@@ -21,7 +21,7 @@ public class SpringMemberControllerV3 {
         return "new-form";
     }
 
-    @RequestMapping
+    @RequestMapping(method = RequestMethod.GET)
     public String members(Model model) {
         List<Member> members = memberRepository.findAll();
 
@@ -29,8 +29,7 @@ public class SpringMemberControllerV3 {
         return "members";
     }
 
-    @RequestMapping("/save")
-
+    @RequestMapping(value = "/save", method = RequestMethod.POST)
     public String save(
             @RequestParam("username") String username,
             @RequestParam("age") int age,

@@ -6,7 +6,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
@@ -22,12 +21,11 @@ public class SpringMemberControllerV3 {
     }
 
     @RequestMapping
-    public ModelAndView members() {
+    public String members(Model model) {
         List<Member> members = memberRepository.findAll();
 
-        ModelAndView mv = new ModelAndView("members");
-        mv.addObject("members", members);
-        return mv;
+        model.addAttribute("members", members);
+        return "members";
     }
 
     @RequestMapping("/save")

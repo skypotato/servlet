@@ -21,7 +21,7 @@ public class SpringMemberControllerV2 {
         return new ModelAndView("new-form");
     }
 
-    @RequestMapping("/members")
+    @RequestMapping
     public ModelAndView members() {
         List<Member> members = memberRepository.findAll();
 
